@@ -5,6 +5,10 @@ import attendanceRoutes from './routes/attendanceRoutes';
 
 const app = express();
 
+app.get('/ping', (_req, res) => {
+    res.send('pong');
+  });
+
 app.use(cors());
 app.use(express.json());
 
