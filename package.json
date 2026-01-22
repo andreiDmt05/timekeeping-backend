@@ -2,7 +2,8 @@
   "name": "backend",
   "version": "1.0.0",
   "scripts": {
-    "start": "ts-node src/server.ts"
+    "start": "node dist/server.js",
+    "build": "tsc"
   },
   "dependencies": {
     "cors": "^2.8.5",
@@ -12,6 +13,8 @@
   },
   "devDependencies": {
     "@types/cors": "^2.8.19",
-    "@types/express": "^5.0.6"
+    "@types/express": "^5.0.6",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
   }
 }
