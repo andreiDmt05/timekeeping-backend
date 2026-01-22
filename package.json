@@ -2,19 +2,19 @@
   "name": "backend",
   "version": "1.0.0",
   "scripts": {
-    "start": "node dist/server.js",
-    "build": "tsc"
+    "build": "tsc",
+    "start": "node dist/server.js"
   },
   "dependencies": {
+    "express": "^5.2.1",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
-    "express": "^5.2.1",
     "mongoose": "^9.1.4"
   },
   "devDependencies": {
-    "@types/cors": "^2.8.19",
-    "@types/express": "^5.0.6",
+    "typescript": "^5.3.3",
     "ts-node": "^10.9.2",
-    "typescript": "^5.3.3"
+    "@types/express": "^5.0.6",
+    "@types/cors": "^2.8.19"
   }
 }
