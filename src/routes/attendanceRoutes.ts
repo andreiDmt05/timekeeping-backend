@@ -1,10 +1,11 @@
 import { Router } from 'express';
 import Attendance from '../models/Attendance';
+import { authMiddleware } from '../middleware/authMiddleware';
 
 const router = Router();
 
 // GET /api/attendance
-router.get('/', async (_req, res) => {
+router.get('/', authMiddleware, async (_req, res) => {
   try {
     const data = await Attendance.find().sort({ date: -1 });
     res.json(data);
@@ -14,7 +15,7 @@ router.get('/', async (_req, res) => {
 });
 
 // DELETE /api/attendance/:id
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', authMiddleware, async (req, res) => {
   try {
     const { id } = req.params;
 
@@ -26,12 +27,12 @@ router.delete('/:id', async (req, res) => {
 
     res.json({ message: 'Attendance deleted successfully' });
   } catch (err) {
-    res.status(500).json({ message: 'Error deleting attendance', err });
+    res.status(500).json({ message: 'Error deleting attendance' });
   }
 });
 
 // POST /api/attendance
-router.post('/', async (req, res) => {
+router.post('/', authMiddleware, async (req, res) => {
   try {
     const attendance = new Attendance(req.body);
     const saved = await attendance.save();
