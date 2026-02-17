@@ -1,3 +1,4 @@
+import authRoutes from './routes/authRoutes';
 import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
@@ -11,6 +12,7 @@ app.get('/ping', (_req, res) => {
 
 app.use(cors());
 app.use(express.json());
+app.use('/api/auth', authRoutes);
 
 // Mount attendance routes
 app.use('/api/attendance', attendanceRoutes);
